@@ -1,16 +1,6 @@
-<!DOCTYPE html>
-<html>
-  
-  <head>
-    <title>WebCampBackendNew</title>
-  </head>
-  
-  <body>
-    <p id="notice"></p>
+
     <p>Title: </p><%= @book.title %>
-    <p>Body: </p><%= @book.body
-    <%= link_to "Update Book", edit_book_path(@book) %>
-    <a class="edit_275860" href="/books/275860/edit">Edit</a>|<a class="back" href="/books">Back</a>
-  </body>
-  
-</html>
+    <p>Body: </p><%= @book.body %>
+    <a class="edit_book" href="/books/edit">Edit </a>
+    |
+    <a class="back" href="/books"> Back</a>

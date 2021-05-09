@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>WebCampBackendNew</title>
-  </head>
-  <body>
-    <p id="notice"></p>
-
-    <h1>Books</h1>
+   <h1>Books</h1>
 
     <table>
       <thead>
         <tr>
           <th>Title</th>
           <th>Body</th>
-          <th colspan="3"></th>
+          <th></th>
         </tr>
       </thead>
 
@@ -22,32 +14,23 @@
         <tr>
           <td><%= book.title %></td>
           <td><%= book.body %></td>
-          <td>
-            <%= link_to "show", book_path(book.id) %>
-            <%= link_to "edit", edit_book_path(book.id) %>
-            <%= link_to "destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %>
-          </td>
+          <td><%= link_to "show", book_path(book.id) %></td>
+          <td><%= link_to "edit", edit_book_path(book.id) %></td>
+          <td><%= link_to "destroy", destroy_book_path(book.id), method: :delete, "data-confirm" => "Are you sure?" %></td>
         </tr>
+        <% end %>
       </tbody>
     </table>
-    <h2>New book</h2>
-    <form class="new_book" id="new_book" action="/books" accept-charset="UTF-8" method="book">
-      <input name="utf8" type="hidden" value="✓">
-      <input type="hidden" name="authenticity_token" value="8JTTn39alKyQg8UaZERCpIBM1h1FdIKmEuy/4ODdbmsqF710Du6VEpAXp4htRbTPcf2vbGCn/t+F+xKFU9hfFw==">
+    
+    <h3>New book</h3>
+     <%= form_for(@book) do |f| %>
 
-      <div class="field">
-        <label for="book_title">Title</label>
-        <input class="book_title" type="text" name="book[title]" id="book_title">
-      </div>
+         <h4>Title</h4>
+         <%= f.text_field :title %>
 
-      <div class="field">
-        <label for="book_body">Body</label>
-        <textarea class="book_body" name="book[body]" id="book_body"></textarea>
-      </div>
+         <h4>Body</h4>
+         <%= f.text_area :body %>
 
-      <div class="actions">
-        <input type="submit" name="commit" value="Create Book" data-disable-with="Create Book">
-      </div>
-    </form>
-  </body>
-</html>
+        <br><%= f.submit 'Create Book' %></br>
+        
+    <% end %>
