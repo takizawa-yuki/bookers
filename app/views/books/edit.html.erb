@@ -8,8 +8,8 @@
   <%= f.text_area :body %><br/>
 
   <%= f.submit 'Update Book' %><br/>
-  <a class="show_book" href="/books/show">Show </a>
-   |
-  <a class="back" href="/books">Back</a>
   
+  <%= link_to "Show", book_path(@book) %>
+   |
+  <%= link_to "Back", books_path %>
 <% end %>

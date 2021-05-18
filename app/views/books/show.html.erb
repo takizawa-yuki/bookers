@@ -1,6 +1,9 @@
 
-    <p>Title: </p><%= @book.title %>
-    <p>Body: </p><%= @book.body %>
-    <a class="edit_book" href="/books/edit">Edit </a>
-    |
-    <a class="back" href="/books"> Back</a>
+    <p><strong>Title: </strong><%= @book.title %></p>
+    <p><strong>Body: </strong><%= @book.body %></p>
+    
+    
+    <%= link_to "Edit", edit_book_path(@book) %>
+   |
+    <%= link_to "Back", books_path %>
+    

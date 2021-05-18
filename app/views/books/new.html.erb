@@ -1,4 +1,15 @@
 <h1>New book</h1>
+
+<% if book.errors.any? %>
+  <div>
+    <ul style="color: red">
+      <% book.errors.full_messages.each do |message| %>
+       <h3><%= book.errors.count %> errors prohibited this obj from being saved</h3>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+  
 <%= form_with model:@book, local:true do |f| %>
 
   <h4>Title</h4>
@@ -9,8 +20,8 @@
 
   <%= f.submit 'Create Book' %>
   
-  <a class="edit_book" href="/books/edit">Edit </a>
+  <%= link_to "Edit", edit_book_path(@book) %>
    |
-  <a class="back" href="/books"> Back</a>
+  <%= link_to "Back", books_path %>
 
 <% end %>
